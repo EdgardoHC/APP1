@@ -1,68 +1,65 @@
 <?php
-
 class Usuario
 {
-    private $usuarioId;
-    private $nombres;
+    private $idUsuario;
+    private $nombre;
     private $apellidos;
-    private $correo;
+    private $email;
     private $apodo;
-    private $constrasena;
+    private $pwd;
 
-
-    public function getUsuarioID()
+    // Getters y Setters
+    public function getIdUsuario()
     {
-        return $this->usuarioId;
+        return $this->idUsuario;
+    }
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
     }
 
-    public function setUsuarioId($value)
+    public function getNombre()
     {
-        $this->usuarioId = $value;
+        return $this->nombre;
     }
-
-    public function getNombres()
+    public function setNombre($nombre)
     {
-        return $this->nombres;
-    }
-    public function setNombre($value)
-    {
-        $this->nombres = $value;
+        $this->nombre = $nombre;
     }
 
     public function getApellidos()
     {
         return $this->apellidos;
     }
-    public function setApellidos($value)
+    public function setApellidos($apellidos)
     {
-        $this->apellidos = $value;
+        $this->apellidos = $apellidos;
     }
 
-    public function getCorreo()
+    public function getEmail()
     {
-        return $this->correo;
+        return $this->email;
     }
-    public function setCorreo($value)
+    public function setEmail($email)
     {
-        $this->correo = $value;
+        $this->email = $email;
     }
 
     public function getApodo()
     {
         return $this->apodo;
     }
-    public function setApodo($value)
+    public function setApodo($apodo)
     {
-        $this->apodo = $value;
+        $this->apodo = $apodo;
     }
 
-
-    public function geContrasena()
+    public function getPwd()
     {
-        return $this->constrasena;
+        return $this->pwd;
     }
-    public function setContasena($value)
+    public function setPwd($pwd)
     {
-        $this->constrasena = $value;
+        $this->pwd = $pwd;
     }
 }

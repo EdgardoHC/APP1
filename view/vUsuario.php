@@ -11,44 +11,36 @@
     <link rel="stylesheet" href="view/vendor/bootstrap-4.6.2-dist/css/bootstrap.min.css">
     <script src="view/vendor/jquery3.7.1/jquery.min.js"></script>
     <script src="view/vendor/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js"></script>
-      <script src="view/js/main.js"></script>
-    <title>Mantenimiento de clientes</title>
+    <script src="view/js/usuario.js"></script>
+    <title>Mantenimiento de clientess</title>
 
 
 </head>
 
 <body>
 
-
-  
-
-    <nav class="navbar navbar-expand-sm bg-light">
-
-        <!-- Links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
-            </li>
-        </ul>
-
-    </nav>
     <div class="container-fluid">
         <h3>Gestión de usuarios</h3>
-        <div class="container contaner-fluid">
-            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalNuevoUsuario">Nuevo registro</button>
-        </div>
+  
+            <button class="btn btn-sm btn-primary" onclick="nuevoUsuario()">Nuevo usuario</button>
 
+       
         <hr>
-        <div id="contenido">
-        </div>
+        <table class="table table-hover table-striped" id="tablaUsuarios">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Apodo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
 
     </div>
+ 
 
     <!-- Modal nuevo usuario-->
     <div class="modal fade" id="modalNuevoUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,9 +53,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formUsuarios" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                    <form id="frmUsuario" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                         <div class="form-row">
                             <div class="form-group col-md-6">
+                                <input type="hidden" id="idUsuario" name="idUsuario">
                                 <label for="nombre">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
                             </div>
@@ -74,19 +67,19 @@
 
                             <div class="form-group col-md-6">
                                 <label for="correo">Correo</label>
-                                <input type="email" class="form-control" id="correo" name="correo" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="apodo">Apodo</label>
                                 <input type="text" class="form-control" id="apodo" name="apodo" required>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="contrasena">Contraseña</label>
-                                <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                            <div class="form-group col-md-6" id="grupoPwd">
+                                <label for="pwd">Contraseña</label>
+                                <input type="password" class="form-control" id="pwd" name="pwd" required>
                             </div>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button id="btnGuardar" type="button" class="btn btn-primary">Guardar</button>
+                        <button id="btnGuardar" type="submit" class="btn btn-primary">Guardar</button>
                     </form>
                 </div>
 

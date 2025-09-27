@@ -6,7 +6,7 @@
     </head> 
     <body> 
         <?php 
-      require './view/vUsuario.php'; 
+         require './view/vUsuario.php'; 
         ?> 
     </body> 
 </html>
