@@ -1,12 +1,3 @@
-<!DOCTYPE html> 
-<html> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <title></title> 
-    </head> 
-    <body> 
-        <?php 
-         require './view/vUsuario.php'; 
-        ?> 
-    </body> 
-</html>
+<?php
+session_start();          // iniciar sesión globalmente
+require_once "router.php"; // incluir el enrutador

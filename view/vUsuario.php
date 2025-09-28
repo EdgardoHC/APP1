@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="view/vendor/bootstrap-4.6.2-dist/css/bootstrap.min.css">
     <script src="view/vendor/jquery3.7.1/jquery.min.js"></script>
     <script src="view/vendor/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js"></script>
     <script src="view/js/usuario.js"></script>
-    <title>Mantenimiento de clientess</title>
+    <title>Mantenimiento de clientes</title>
 
 
 </head>

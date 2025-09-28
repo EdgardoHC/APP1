@@ -2,19 +2,23 @@
 require_once "Conexion.php";
 require_once "Usuario.php";
 
-class UsuarioDAO {
+class UsuarioDAO
+{
     private $pdo;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->pdo = Conexion::getInstance()->getConexion();
     }
 
-    public function listar() {
+    public function listar()
+    {
         $sql = "SELECT idUsuario, nombre, apellidos, email, apodo FROM usuarios";
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function crear(Usuario $u) {
+    public function crear(Usuario $u)
+    {
         $sql = "INSERT INTO usuarios(nombre, apellidos, email, apodo, pwd) 
                 VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
@@ -23,11 +27,12 @@ class UsuarioDAO {
             $u->getApellidos(),
             $u->getEmail(),
             $u->getApodo(),
-            password_hash($u->getPwd(), PASSWORD_DEFAULT) 
+            password_hash($u->getPwd(), PASSWORD_DEFAULT)
         ]);
     }
 
-    public function actualizar(Usuario $u) {
+    public function actualizar(Usuario $u)
+    {
         $sql = "UPDATE usuarios SET nombre=?, apellidos=?, email=?, apodo=? WHERE idUsuario=?";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
@@ -39,9 +44,18 @@ class UsuarioDAO {
         ]);
     }
 
-    public function eliminar($id) {
+    public function eliminar($id)
+    {
         $sql = "DELETE FROM usuarios WHERE idUsuario=?";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$id]);
+    }
+
+    public function buscarPorEmailOApodo($usuario)
+    {
+        $sql = "SELECT * FROM usuarios WHERE email = ? OR apodo = ? LIMIT 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$usuario, $usuario]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
